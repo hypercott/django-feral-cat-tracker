@@ -1,0 +1,29 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}Feral Cat Tracker{% endblock %}
+
+{% block body_class %}home{% endblock %}
+
+{% block body_base %}
+    <section>
+        <div class="container">
+            <h2>{% blocktrans %}Feral Cat Tracker::Main{% endblocktrans %}</h2>
+
+	    <p><a href="{% url 'cattrack-colonies' %}">Colonies</a></p>
+        </div>
+    </section>
+<!--
+    <section>
+        <div class="container">
+            <p class="lead text-center">
+                {% blocktrans %}
+                See <a href="http://pinaxproject.com/">pinaxproject.com</a>
+                for more information.
+                {% endblocktrans %}
+            </p>
+        </div>
+    </section>
+-->
+{% endblock %}
