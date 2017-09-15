@@ -33,14 +33,14 @@ class CatCaretaker(models.Model):
     
 class CatColony(models.Model):
     DEFAULT_PK=1
-    colony_name = models.CharField(max_length=256,null=False)
-    colony_location_name = models.CharField(max_length=256,null=True)
-    colony_street_address = models.CharField(max_length=256,null=True)
-    colony_cross_street = models.CharField(max_length=256,null=True)
-    colony_city = models.CharField(max_length=256,null=True)
-    colony_state = models.CharField(max_length=256,null=True)
-    colony_zip = models.IntegerField(null=True)
-    colony_year_formed = models.IntegerField(blank=True,null=True)
+    colony_name = models.CharField(max_length=256,null=False,verbose_name=('Name'))
+    colony_location_name = models.CharField(max_length=256,null=True,verbose_name=('Location Name'))
+    colony_street_address = models.CharField(max_length=256,null=True,verbose_name=('Street Address'))
+    colony_cross_street = models.CharField(max_length=256,null=True,verbose_name=('Cross Streets'))
+    colony_city = models.CharField(max_length=256,null=True,verbose_name=('City'))
+    colony_state = models.CharField(max_length=256,null=True,verbose_name=('State'))
+    colony_zip = models.IntegerField(null=True,verbose_name=('Zip'))
+    colony_year_formed = models.IntegerField(blank=True,null=True,verbose_name=('Year formed'))
     SETTING_CHOICES = (
         ('R','Rear of address'),
         ('A','Alley'),
@@ -51,8 +51,8 @@ class CatColony(models.Model):
         ('I','Industrial'),
         ('O','Other')
         )
-    colony_setting = models.CharField(max_length=1,choices=SETTING_CHOICES,default='R',null=True)
-    colony_setting_other = models.TextField(blank=True)
+    colony_setting = models.CharField(max_length=1,choices=SETTING_CHOICES,default='R',null=True,verbose_name=('Setting'))
+    colony_setting_other = models.TextField(blank=True,verbose_name=('Setting Notes'))
 
     # using simple history
     history = HistoricalRecords()

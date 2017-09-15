@@ -8,41 +8,18 @@
 
 {% block body_base %}
 {% block content %}
-     <section>
+    <section>
         <div class="container">
             <h2>Feral Cat Tracker::Colonies::{{ catcolony.colony_name }}</h2>
+	    <!-- <input type=button value="Back to Colonies" onClick="javascript:history.go(-1);"> -->
 	    <a href="../../colonies" type="button" class="btn btn-primary">Back to Colonies</a>
-	    <a href="../../colonies/edit/{{ pk }}" type="button" class="btn btn-danger">Edit {{ catcolony.colony_name }}</a>
         </div>
     </section>
     <section>
       <div class="container">
+	<p>This is the Colony that holds all cats not associated with a real colony</p>
 	<table class="table table-striped table-responsive" style="width: 60%">
-	  <tr><td>Name </td><td>{{ catcolony.colony_name }}
-	  </td></tr>
-	  <tr><td>Location Name </td><td>{{ catcolony.colony_location_name }} 
-	  </td></tr>
-	  <tr><td>Street Address</td><td>{{ catcolony.colony_street_address }}
-	  </td></tr>
-	  <tr><td>Cross Streets</td><td>{{ catcolony.colony_cross_street }}
-	  </td></tr>
-	  <tr><td>City</td><td>{{ catcolony.colony_city }}
-	  </td></tr>
-	  <tr><td>State</td><td>{{ catcolony.colony_state }}
-	  </td></tr>
-	  <tr><td>Zip</td><td>{{ catcolony.colony_zip }}
-	  </td></tr>
-	  <tr><td>Year formed</td><td>{{ catcolony.colony_year_formed }}
-	  </td></tr>
-	  {% for key, value in catcolony.SETTING_CHOICES %} 
-	      {% if key == catcolony.colony_setting %}
-	  <tr><td>Setting:</td><td>{{ value }}
-	      {% endif %}
-	  {% endfor %}    
-	  </td></tr>
-	  <tr><td>Setting Notes</td><td>{{ catcolony.colony_setting_other }}
-	  </td></tr>
-	  <tr><td>Member Cats</td><td>
+	  <tr><td>Member Cats:</td><td>
 	    <ul>
 	      {% for cat in cats %} 
 	      <li> {{ cat.cat_name }} </li>
